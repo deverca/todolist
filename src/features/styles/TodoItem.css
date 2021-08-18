@@ -4,17 +4,39 @@
 
 .item-container{
     border-radius: 25px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    
 background-color: #d8e3ec;
   padding: 20px;
-  margin-top: 5px;
+margin-left: 10px;
+  margin-top: 15px;
   width: 700px;
-  height: 5px; 
+  height: 20px; 
+  position: relative;
 }
 .item-container:hover{
-    background-color: #89aac5;
+    background-color:#914970;
 }
 .button:active {
-    background-color: #3e8e41;
+    background-color: black;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
+}.button {
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: red;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    position: absolute;
+    height: 30px;
+
+right: 10px;
+top: 5px;
   }
+  

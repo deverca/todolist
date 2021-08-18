@@ -1,0 +1,5 @@
+.home-container{
+    background: linear-gradient(to left, #628db2, teal);  display: flex;
+    width: 100000px;
+    height: 10000px;
+}

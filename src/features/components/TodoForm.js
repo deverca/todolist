@@ -1,8 +1,9 @@
 import {useState} from 'react';
-import "../styles/TodoForm.css";
 import {useDispatch} from "react-redux";
+import {addToDo} from '../apis/todos';
 import {AddTodo} from "../reducers/todosSlice";
-
+import "../styles/TodoForm.css"
+import {Button, Input} from 'antd';
 
 function TodoForm() {
 
@@ -10,28 +11,26 @@ function TodoForm() {
 
  const dispatch = useDispatch();
 
-function changeHandler(event){
+function changeHandler(event){setText(event.target.value);}
 
-setText(event.target.value);
+function addTodoItem (){
+
+addToDo(text).then(()=>{
+dispatch(AddTodo(text));
+setText("");
+});
+
 
 }
-
-function addHandler(){
-    console.log("A new task has been added:", text);
-    dispatch(AddTodo(text));
-    setText("");
-
-}
-
 
     return (
-        <div className="TodoForm">
-            <input type="text" placeholder="Add a new task." value={text}
+        <div className="home">
+            <input type="text" className="input" placeholder="Add a new task." value={text}
             onChange={changeHandler}
             
             />
-            <button
-            onClick={addHandler}>Add</button>
+            <button type="primary" className="button-add" 
+            onClick={addTodoItem}>Add</button>
             
         </div>
     )
