@@ -15,8 +15,8 @@ function changeHandler(event){setText(event.target.value);}
 
 function addTodoItem (){
 
-addToDo(text).then(()=>{
-dispatch(AddTodo(text));
+addToDo(text).then((response)=>{
+dispatch(AddTodo(response.data));
 setText("");
 });
 

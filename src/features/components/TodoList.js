@@ -5,9 +5,12 @@ import "../styles/TodoForm.css";
 import {getTodos} from "../apis/todos";
 import {useSelector, useDispatch} from "react-redux";
 import {AddTodos} from "../reducers/todosSlice";
-import {Layout} from 'antd';
+import ConfettiGenerator from "confetti-js";
+import {Progress} from "antd";
+
 function TodoList() {
 
+  
     const dispatch = useDispatch();
 useEffect(()=>{
 
@@ -21,10 +24,10 @@ getTodos().then((response) =>{
 
 
     return (
-      
+   
 <div>
     <h1 className="todo-header"><b>What are your plans for today?</b></h1>
- 
+
         <div className="TodoList">
             
             <TodoGroup></TodoGroup>

@@ -4,9 +4,11 @@ import {useSelector} from 'react-redux';
 import {useDispatch} from "react-redux";
 import "../styles/TodoItem.css";
 import {updateToDo, deleteToDo} from "../apis/todos";
+
 function TodoItem(props) {
     const  todo = useSelector(state => selectTodoById(state, props.itemId))
    const dispatch = useDispatch();
+
 
 const handleClick = (event)=>{
     updateToDo(props.itemId,{done: !todo.done}).then(()=>{
@@ -28,6 +30,7 @@ function handleDelete(event){
 
  const todoStatus = todo.done? "done":"";
     return (  
+        
         <div className="item-container">
         <div className={`TodoItem-${todoStatus}`}  onClick={handleClick}>
             {todo.text}

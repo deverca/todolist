@@ -3,12 +3,18 @@ import { selectDoneList } from '../reducers/todosSlice';
 import TodoItem from './TodoItem'
 import {useSelector} from 'react-redux';
 import "../styles/TodoForm.css";
+import ConfettiGenerator from "confetti-js";
+import {useEffect} from 'react';
+
 
 function DoneList() {
     const doneList= useSelector(selectDoneList);
+    
+ 
     return (
 
-<div>
+
+    <div>
 
           <h1 className="todo-header"><b>You did great!</b></h1>
         <div className="TodoList">
@@ -23,6 +29,7 @@ function DoneList() {
    }
        </div>
        </div>
+      
       
     
     )
