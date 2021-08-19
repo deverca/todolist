@@ -24,7 +24,7 @@ border: 3px solid #000000;
 background: linear-gradient(to left,#feadb9,#bc85a3,#9799ba);
 border-radius: 25px;
 height:600px;
-width:730px;
+width:790px;
 overflow: auto;
   }
   .TodoForm{
@@ -38,7 +38,7 @@ overflow: auto;
     padding-top: 20px;
     padding-bottom: 10px;
     border-radius: 25px;
-    width:730px;
+    width:790px;
     border: 3px solid #000000;
   }
   .button-add:active {

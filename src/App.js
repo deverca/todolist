@@ -3,22 +3,42 @@ import './App.css';
 import TodoList from './features/components/TodoList';
 import {Route, Link, BrowserRouter,Switch, HashRouter} from "react-router-dom";
 import React from 'react';
+import {useEffect} from 'react';
 import NotFoundPage from './features/components/NotFoundPage';
 import DoneList from './features/components/DoneList';
 import DoneContainer from './features/components/DoneContainer';
 import Homepage from './features/components/Homepage';
+import {useDispatch} from "react-redux";
+import { getTodos } from './features/apis/todos';
+import { AddTodos } from './features/reducers/todosSlice';
 
 import {Menu, Layout} from 'antd';
 
 const { SubMenu } = Menu;
 function App() {
+
+  const dispatch = useDispatch();
+  useEffect(()=>{
+  
+  getTodos().then((response) =>{
+  
+      dispatch(AddTodos(response.data));
+  }
+  
+  )
+  },[])
+  
+
+
+
+
+
   const { Header, Content, Footer } = Layout;
   return (
  
     <div >
  
 <React.Fragment>
-
 
 <BrowserRouter>
  <Menu className="header" theme= "dark"mode="horizontal">
@@ -30,9 +50,6 @@ function App() {
         </Menu.Item>
       
       </Menu> 
-
-
-
 
       <Content className="site-layout">
         

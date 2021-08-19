@@ -1,13 +1,30 @@
 .TodoItem-done{
     text-decoration: line-through;
 }
+.TodoItem-done-button{
+  display:none;
+}
+.TodoItem-button{
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: rgb(182, 47, 88);
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  position: absolute;
+  height: 30px;
 
+right: 50px;
+top: 5px;
+}
 .item-container{
     border-radius: 25px;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
     font-size: large;
-    
 background-color: #d8e3ec;
   padding: 20px;
 margin-left: 10px;

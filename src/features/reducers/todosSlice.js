@@ -16,12 +16,20 @@ const todosSlice = createSlice(
                 AddTodo(state, action){
                todosAdapter.addOne(state,action.payload)
                 },
-
                 ToggleTodo(state,action){
                   const todo = state.entities[action.payload];
                   todo.done =!todo.done;
-               
+
                   },
+                  UpdateTodoText(state,action){
+                    todosAdapter.updateOne(state, {
+                      id: action.payload.id,
+                      changes: action.payload.updateToDo
+                  })
+
+
+
+                },
 
                 AddTodos(state,action){
                 todosAdapter.addMany(state,action.payload);
@@ -36,7 +44,7 @@ const todosSlice = createSlice(
 
 export default todosSlice.reducer;
 
-export const {AddTodo, ToggleTodo,RemoveTodo, AddTodos} = todosSlice.actions;
+export const {AddTodo, ToggleTodo,RemoveTodo, AddTodos,UpdateTodoText} = todosSlice.actions;
 
 export const {selectAll: selectTodos,selectIds: selectTodoIds, selectById: selectTodoById, selectEntities: selectEntities } = todosAdapter.getSelectors((state) => state.todoList );
 
