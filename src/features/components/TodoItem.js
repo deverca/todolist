@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {selectTodoById, ToggleTodo,RemoveTodo, UpdateTodoText} from "../reducers/todosSlice";
+import {selectTodoById,RemoveTodo, UpdateTodo} from "../reducers/todosSlice";
 import {useSelector} from 'react-redux';
 import {useDispatch} from "react-redux";
 import "../styles/TodoItem.css";
@@ -19,7 +19,7 @@ function TodoItem(props) {
     setIsModalVisible(false);
     if(document.getElementById("newValue").value!==""){
         updateToDo(props.itemId,{text:document.getElementById("newValue").value }).then(response=>{
-            dispatch(UpdateTodoText({id:props.itemId, updateToDo:response.data}));
+            dispatch(UpdateTodo({id:props.itemId, updateToDo:response.data}));
     });
     }
   };
@@ -29,8 +29,9 @@ function TodoItem(props) {
 
 
 const handleClick = (event)=>{
-    updateToDo(props.itemId,{done: !todo.done}).then(()=>{
-   dispatch(ToggleTodo(props.itemId));
+    updateToDo(props.itemId,{done: !todo.done}).then((response)=>{
+  //  dispatch(ToggleTodo(props.itemId));
+  dispatch(UpdateTodo({id:props.itemId, updateToDo:response.data}));
        event.stopPropagation();
 });
  
@@ -46,7 +47,6 @@ function handleDelete(event){
   
 
 }
-const handleEdit = (event)=>{}
 
  const todoStatus = todo.done? "done":"";
  const editButtonClass =todo.done?`TodoItem-${todoStatus}-button`:`TodoItem-button`;
